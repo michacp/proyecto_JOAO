@@ -1,0 +1,33 @@
+# 🚀 Levantar todos los servicios (con build)
+docker compose up -d --build
+
+# 🚀 Levantar todos los servicios (sin build, usa lo ya compilado)
+docker compose up -d
+
+# ⏹️ Detener todos los servicios
+docker compose down
+
+# ⏹️ Detener y eliminar contenedores, redes y volúmenes anónimos
+docker compose down -v
+
+# 🔄 Reiniciar todos los servicios
+docker compose restart
+
+# 📜 Ver logs de todos los servicios
+docker compose logs -f
+
+# 📜 Ver logs de un servicio específico
+docker compose logs -f backend
+docker compose logs -f frontend
+docker compose logs -f mysql
+
+# 🐚 Entrar a un contenedor en modo terminal
+docker exec -it joao-backend bash
+docker exec -it joao-frontend sh
+docker exec -it joao-mysql bash
+
+# 🗑️ Eliminar todos los contenedores de este proyecto
+docker compose rm -f
+
+# 🧹 Eliminar TODO lo huérfano (contenedores, redes, imágenes no usadas)
+docker system prune -af

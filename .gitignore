@@ -1,0 +1,16 @@
+ rm -rf frontend/.git
+backend/storage/*.key
+backend/public/storage
+
+ 
+backend/vendor/
+backend/node_modules/
+frontend/node_modules/
+
+ 
+*.log
+.phpunit.result.cache
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
