@@ -1,4 +1,4 @@
- rm -rf frontend/.git
+rm -rf frontend/.git
 backend/storage/*.key
 backend/public/storage
 
