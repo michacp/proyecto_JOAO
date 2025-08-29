@@ -1,13 +1,13 @@
 🚀 Proyecto JOAO - Sistema Full-Stack Laravel + Vue.js
 📋 Descripción del Proyecto
-Solución full-stack desarrollada para prueba técnica con Vue.js 3, Laravel 11 y MySQL 8.0, completamente containerizada con Docker. Este proyecto demuestra mi capacidad de aprendizaje rápido y adaptación a nuevas tecnologías en tiempo récord.
+Solución full-stack desarrollada para prueba técnica con Vue.js, Laravel y MySQL, completamente containerizada con Docker. Este proyecto demuestra mi capacidad de aprendizaje rápido y adaptación a nuevas tecnologías en tiempo récord.
 
-Nota importante: Desarrollé este proyecto sin conocimiento previo en Laravel o Vue.js, aplicando mis conocimientos sólidos en lógica de programación, Node.js y Angular para crear una solución funcional y bien estructurada en menos de 24 horas.
+Nota importante: Desarrollé este proyecto sin conocimiento previo en Laravel o Vue.js, aplicando mis conocimientos sólidos en lógica de programación, Node.js y Angular para crear una solución funcional y bien estructurada en menos de 24 horas. Reconozco que hay mucho por mejorar en el código, pero esto representa mi capacidad para aprender rápidamente y entregar soluciones funcionales bajo presión.
 
 🎯 Características Principales
-Frontend: Vue.js 3 con Composition API
+Frontend: Vue.js con Composition API
 
-Backend: Laravel 11 con API RESTful
+Backend: Laravel con API RESTful
 
 Base de datos: MySQL 8.0 con configuración optimizada
 
@@ -17,7 +17,7 @@ Arquitectura: Nginx + PHP-FPM para máximo rendimiento
 
 🛠️ Tecnologías Utilizadas
 Frontend
-Vue.js 3
+Vue.js
 
 Vue Router
 
@@ -26,7 +26,7 @@ Axios para peticiones HTTP
 Componentes modernos
 
 Backend
-Laravel 11
+Laravel
 
 Eloquent ORM
 
@@ -76,14 +76,14 @@ La aplicación estará disponible en:
 
 🔧 Backend API (Laravel): http://localhost:8000
 
-🐬 PHPMyAdmin: http://localhost:8080 (si está configurado)
+🐬 Base de datos MySQL: puerto 3308 (externo)
 
 📊 Credenciales de Base de Datos
 MySQL Database:
 
 Host: db (nombre del servicio en Docker)
 
-Puerto: 3306 (interno en Docker)
+Puerto: 3306 (interno en Docker), 3308 (externo desde tu máquina)
 
 Database: laravel
 
@@ -131,6 +131,10 @@ docker exec -it laravel_app bash
 docker exec -it vue_app sh
 docker exec -it mysql_db mysql -u laravel -p
 
+# 🛠️ Comandos Artisan (desde dentro del contenedor)
+docker exec -it laravel_app php artisan migrate
+docker exec -it laravel_app php artisan db:seed
+
 # 🗑️ Limpieza completa
 docker compose rm -f
 docker system prune -af
@@ -139,11 +143,11 @@ Tu arquitectura incluye:
 
 backend (PHP-FPM): Procesamiento PHP de Laravel
 
-backend_nginx: Servidor web para Laravel
+backend_nginx: Servidor web para Laravel (puerto 8000)
 
-frontend (Vue.js): Aplicación frontend
+frontend (Vue.js): Aplicación frontend (puerto 8080)
 
-db (MySQL 8.0): Base de datos con configuración optimizada
+db (MySQL 8.0): Base de datos con configuración optimizada (puerto 3308 externo)
 
 ⚙️ Configuración Técnica Avanzada
 MySQL Optimizado:
@@ -171,7 +175,9 @@ docker compose restart backend
 docker compose logs -f backend
 Si necesitas ejecutar comandos artisan:
 bash
-docker exec -it laravel_app php artisan [comando]
+docker exec -it laravel_app php artisan migrate
+docker exec -it laravel_app php artisan db:seed
+docker exec -it laravel_app php artisan optimize:clear
 Para recrear la base de datos:
 bash
 docker compose down -v
@@ -204,7 +210,6 @@ Configuración optimizada para entornos productivos
 ✅ Buenas prácticas de desarrollo y containerización
 
 📞 Contacto
-Christian Suarez
+Christian Michael Suarez Pesantez
+📞 +593 983249741
 📧 michacp@hotmail.com
- 
-
